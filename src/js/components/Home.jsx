@@ -12,14 +12,40 @@ const Home = () => {
 	// 	const result = setListArraylistArray.filter((item)=> item !==itemToDelete)}
 	// 		setListArray(result)
 	
+	const createUser = ()=>{
+		const option={
+			method: "GET",
+			headers:{
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				"name": "lvalcin",
+				"id": 0
+			  })
+		}
+		fetch("https://playground.4geeks.com/todo/users/lvalcin", option)
+		.then((resp)=>{
+			if(resp.ok==false){
+				console.log("IT FAILED!")
+		}
+		else{
+			getData()
+		}
+		return resp.json()
+		})
+		.then((data)=>console.log(data, "this is my agenda")) 
+
+		}
+	
+	
 	const toDoUrl = "https://playground.4geeks.com/todo/";
-	// const toDoUrl = "https://playground.4geeks.com/todo/users/lvalcin";
+	
 	const getToDos = ()=>{
 		fetch(toDoUrl+"users/lvalcin")
 		.then((resp)=> resp.json())
 		.then((data)=>setListArray(data.todos))
 	}
-		getToDos()
+
 
 	const addToDo =(input)=>{
 		const options ={
@@ -36,11 +62,14 @@ const Home = () => {
 		})
 		.then((data)=>{
 			console.log(data, "item added")
+			getToDos();
 		})
 	}
 
 	useEffect(()=>{
 		getToDos();
+		createUser();
+		addToDo()
 	},[])	
 
 	return (
