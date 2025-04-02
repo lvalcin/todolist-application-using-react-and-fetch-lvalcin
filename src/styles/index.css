@@ -4,21 +4,25 @@
 }
 .text-center{
     color: rgb(71, 4, 71);
-    background-color:aliceblue;;
+    background-color:aliceblue;
     
 }
 h1{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;   
+    font-family: Impact;   
 }
 
-.title{
-    color:rgb(131, 51, 131);
-    font-family:fantasy
-    color: white; /* Inner text color */
-  text-shadow: 
-    -2px -2px 0 aliceblue,  
-     2px -2px 0 aliceblue,  
-    -2px  2px 0 aliceblue,  
-     2px  2px 0 aliceblue; /* Creates a thick outline */
+button{
+    border-color: rgb(71, 4, 71);
+    color:rgb(71, 4, 71);
+    border-radius: 5px;
+    margin:10px;
+    font-family: Cambria;
+    background-color:rgb(209, 242, 242)
+
 }
+button:hover {
+    background-color: #49d0f9;
+}
+span:hover{
+    background-color:#49d0f9;
 }
