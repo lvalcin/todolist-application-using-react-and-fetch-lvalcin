@@ -9,3 +9,21 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+.border{
+    background: rgb(214, 162, 214);
+}
+.text-center{
+    color:aliceblue;
+}
+
+.title{
+    color:rgb(131, 51, 131);
+    font-family:fantasy
+    color: white; /* Inner text color */
+  text-shadow: 
+    -2px -2px 0 aliceblue,  
+     2px -2px 0 aliceblue,  
+    -2px  2px 0 aliceblue,  
+     2px  2px 0 aliceblue; /* Creates a thick outline */
+}
+}

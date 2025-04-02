@@ -9,8 +9,8 @@ const Home = () => {
 	const [listArray, setListArray]=useState([])
 	const [inputValue, setInputValue]=useState("")
 	// const deleteItem = (itemToDelete) => {
-	// 	const result = setListArraylistArray.filter((item)=> item !==itemToDelete)}
-	// 		setListArray(result)
+		// const result = listArray.filter((item)=> item !==itemToDelete)}
+		// 	setListArray(result)
 	
 	const createUser = ()=>{
 		const option={
@@ -66,10 +66,29 @@ const Home = () => {
 		})
 	}
 
+								// /todos/{todo_id}
+	const deleteToDo = (itemToDelete)=>{
+		const options = {
+			method: "DELETE",
+			headers: {
+				"Content-Type": "application/json"
+			}
+		};
+		fetch(`${toDoUrl}todos/${itemToDelete}`, options)
+		.then((resp)=>{resp.json()
+
+		})
+		.then(()=>{
+			setListArray((prevList) =>
+				prevList.filter((item)=> item.id !==itemToDelete)
+		);
+		})
+	}
+
 	useEffect(()=>{
 		getToDos();
 		createUser();
-		addToDo()
+		// addToDo()
 	},[])	
 
 	return (
@@ -81,7 +100,10 @@ const Home = () => {
 				(item)=>{
 					return (
 					<div className= "container border p-2 fs-3 text fw-light">
-						<li>{item.label}</li>
+						<ul className="list-inline">
+							<li>{item.label}</li>
+						<button onClick={() => deleteToDo(item.id)}>Delete</button>
+						</ul>
 					</div>)
 				})
 			}
